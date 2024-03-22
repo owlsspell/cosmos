@@ -10,25 +10,23 @@ export default function MilkyWay() {
     gsap.registerPlugin(useGSAP);
 
     const container = useRef();
-    gsap.defaults({ transition: 1 })
 
     useGSAP(() => {
-        gsap.from(".mountain", { scale: 1.5, yPercent: -25, duration: 2 });
-        gsap.from(".way", { scale: 2, xPercent: 30, yPercent: -60, duration: 2 });
-        gsap.from(".mainTitle", { opacity: 0, translateY: -150, duration: 0.8 });
+        gsap.from(".mountain", { scale: 1.8, yPercent: -25, duration: 2, delay: 1 });
+        gsap.from(".way", { scale: 2, xPercent: 30, yPercent: -60, duration: 1.8, delay: 1 });
+        gsap.from(".mainTitle", { opacity: 0, translateY: -150, duration: 0.8, delay: 1 });
 
         gsap.timeline()
-            .from(".subTitle", { opacity: 0, translateY: -150, duration: 1.2 })
+            .from(".subTitle", { opacity: 0, translateY: -150, duration: 1.2, delay: 1 })
             .to(".text", { opacity: 1, duration: 1 })
             .to(".scrollBtn", { opacity: 1, duration: 0.3 })
-            .to(".scrollBtn", { y: -50, repeat: -1, yoyo: true, duration: 0.5, ease: "bounce.inOut" });
-        // .to(".scrollBtn", { bottom: 200, repeat: -1, duration: 1, });
-    }, { scope: container });
+            .to(".scrollBtn", { y: -20, repeat: -1, yoyo: true, duration: 0.5, ease: "circ" });
+    }, { dependencies: [], scope: container });
 
     return (
         <div className='relative min-h-screen w-auto overflow-hidden' ref={container}>
             <img className='absolute way object-cover h-screen w-full' src={milky_way} alt="" />
-            <img className="absolute top-0 mountain object-cover h-screen w-full" src={mountain_1} alt='' />
+            <img className="mountain absolute top-0 object-cover h-screen w-full" src={mountain_1} alt='' />
             <div className='flex items-center flex-col mt-20 mx-32 gap-4 z-10 relative h-screen text-white'>
                 <h3 className="text-xl subTitle">ACROSS THE MILKY WAY</h3>
                 <h1 className="text-5xl mb-2 font-semibold mainTitle">STARRY NIGHT</h1>
