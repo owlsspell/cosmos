@@ -16,20 +16,23 @@ export default function PeopleAreComing() {
     useGSAP(() => {
         gsap.from(".land", {
             scrollTrigger: {
-                trigger: '.image-1',
+                trigger: '.bg',
                 start: "center center",
-                end: "bottom -=170%",
+                end: "bottom -=70%",
                 scrub: 1,
-                pin: true
+                pin: true,
             },
+            ease: 'power.out',
+            scale: 1
         })
         gsap.from(".people", {
             scrollTrigger: {
                 trigger: '.people',
-                start: "-=50% center",
-                end: "bottom bottom",
-                scrub: true,
+                start: "-=20% center",
+                end: "center -=70%",
+                scrub: 1,
             },
+            ease: 'power.out',
             scale: 1
         })
 
@@ -37,28 +40,48 @@ export default function PeopleAreComing() {
             scrollTrigger: {
                 trigger: '.planet',
                 start: "center center",
-                end: "bottom -=200%",
+                end: "bottom -=100%",
                 scrub: true,
-                pin: true
+                pin: true,
             },
-            rotate: 360,
+            rotate: 250,
             x: '150%',
             ease: "power.out"
         })
-
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: '.text-1',
+                start: "top center",
+                end: "bottom bottom",
+            }
+        })
+            .from(".text-1", { opacity: 0, translateY: -50, duration: 1 })
+            .from(".text-2", { opacity: 0, translateY: -50 })
+            .from(".text-3", { opacity: 0, translateY: -50 })
     }, { dependencies: [], scope: container });
 
-    return (<>
+    return (
         <div ref={container} className='relative section-2 overflow-hidden'>
-            <img src={bg} alt="" className='image-1 h-screen' />
+            <div className='absolute z-20 flex justify-end flex-col h-full w-full text-white'>
+                <div className='container w-full mx-auto mb-60'>
+                    <h2 className='text-7xl font-bold mb-4 text-1'>to the <br />
+                        unknown</h2>
+                    <div className='flex justify-between '>
+                        <p className='w-1/3 text-2'>and back</p>
+                        <p className='w-1/3 pt-3 text-right text-3'>Make a pipe dream come true</p>
+                    </div>
+                </div>
+            </div>
+            <img src={bg} alt="" className='bg h-screen w-full' />
             <div className='w-screen flex justify-center absolute top-0'>
-                <img src={planet} alt="" className='image-3 planet' />
+                <img src={planet} alt="" className='planet' />
             </div>
             <div className='w-screen z-10 flex justify-center absolute bottom-0'>
                 <img src={people} alt="" className='people scale-50' />
             </div>
-            <img src={land} alt="" className='land absolute bottom-0' />
+            <img src={land} alt="" className='land absolute bottom-0 w-full' />
+
         </div>
-    </>
+
     )
 }
