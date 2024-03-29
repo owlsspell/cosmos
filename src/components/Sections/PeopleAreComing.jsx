@@ -61,7 +61,7 @@ export default function PeopleAreComing() {
     }, { dependencies: [], scope: container });
 
     return (
-        <div ref={container} className='relative section-2 overflow-hidden'>
+        <div ref={container} className='relative overflow-hidden'>
             <div className='absolute z-20 flex justify-end flex-col h-full w-full text-white'>
                 <div className='container w-full mx-auto mb-60'>
                     <h2 className='text-7xl font-bold mb-4 text-1'>to the <br />

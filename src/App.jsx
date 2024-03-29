@@ -1,5 +1,6 @@
 import './App.css'
 import Loader from './components/Loader'
+import Astronaut from './components/Sections/Astronaut'
 import MilkyWay from './components/Sections/MilkyWay'
 import NLOArrived from './components/Sections/NLOArrived'
 import PeopleAreComing from './components/Sections/PeopleAreComing'
@@ -12,6 +13,7 @@ function App() {
       <MilkyWay />
       <PeopleAreComing />
       <NLOArrived />
+      <Astronaut />
     </>
   )
 }

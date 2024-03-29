@@ -28,7 +28,7 @@ export default function NLOArrived() {
         gsap.timeline({
             scrollTrigger: {
                 trigger: '.bg',
-                markers: true,
+                // markers: true,
                 start: "center center",
                 end: "bottom -=70%",
                 scrub: 1,
